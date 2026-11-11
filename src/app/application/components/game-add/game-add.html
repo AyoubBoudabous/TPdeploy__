@@ -1,0 +1,42 @@
+<h3>Ajout d'un jeu</h3>
+<form>
+    <div>
+        <label for="gameId"> Identifiant du jeu </label>
+        <input type="number" name="id" id="gameId" readonly>
+    </div>
+    <div>
+        <label for="gameName">Nom</label>
+        <input type="text" name="name" id="gameName">
+    </div>
+    <div>
+        <label for="gamePrice">Prix</label>
+        <input type="number" name="price" id="gamePrice">
+    </div>
+    <div>
+        <label> Made In </label>
+        <label>
+            <input type="radio" name="madeIn" value="Tunisie">Tunisie
+        </label>
+        <label>
+            <input type="radio" name="madeIn" value="Autre">Autre
+        </label>
+    </div>
+    <div>
+        <label for="gameCategory">Catégorie</label>
+        <select name="selCategories" id="gamePrice">
+
+        </select>
+    </div>
+    <div>
+        <label for="gameIsNew">
+            <input type="checkbox" name="isNew" id="gameIsNew"> Nouveau
+        </label>
+    </div>
+    <!-- <h5>Définition des points de vente</h5>
+    <button type="button">Ajouter un point de vente</button> -->
+    <div>
+        <input type="submit" value="Ajouter">
+        <input type="button" value="Effacer">
+    </div>
+
+</form>
