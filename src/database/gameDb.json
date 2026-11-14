@@ -1,7 +1,7 @@
 {
   "games": [
     {
-      "id": "1",
+      "id": "oEeLwGMIszE",
       "name": "Monopoly",
       "price": 30,
       "madeIn": "Tunisie",
@@ -13,13 +13,18 @@
       ]
     },
     {
-      "id": 2,
-      "name": "Uno",
-      "price": 10,
-      "madeIn": "Tunisie",
+      "id": "qgXqGcR_oxI",
+      "name": "Amel",
+      "price": 42042,
+      "madeIn": "Autre",
       "category": "Jeux de cartes",
-      "isNew": false,
-      "shops": []
+      "isNew": true,
+      "shops": [
+        "Aazea",
+        "Azerzrz",
+        "ZZZ"
+      ]
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

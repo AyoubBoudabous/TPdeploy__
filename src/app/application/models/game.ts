@@ -7,5 +7,5 @@ export interface Game {
     madeIn:string;
     category:Category;
     isNew:boolean;
-    shops?: string[];
+    shops: string[];
 }
