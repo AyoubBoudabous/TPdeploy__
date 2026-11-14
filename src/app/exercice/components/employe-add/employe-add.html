@@ -1,0 +1,49 @@
+<h2> Ajout d'un employé</h2>
+<form [formRoot]="employeForm" (submit)="onAddEmploye()" novalidate>
+    <div>
+        <label> Donnez le matricule</label>
+        <input type="text" [formField]="employeForm.matricule">
+    </div>
+    @if(employeForm.matricule().invalid() && employeForm.matricule().touched()){
+    @for(error of employeForm.matricule().errors(); track $index){
+        <div class="alert alert-danger">
+            {{error.message}}
+        </div>
+    }
+    }
+    <div>
+        <label> Donnez le nom</label>
+        <input type="text" [formField]="employeForm.nom">
+            @if(employeForm.nom().invalid() && employeForm.nom().touched()){
+    @for(error of employeForm.nom().errors(); track $index){
+        <div class="alert alert-danger">
+            {{error.message}}
+        </div>
+    }
+    }
+    </div>
+
+    <div class="p-2 bg-light rounded">
+        <strong>Affiliation</strong>
+        <div>
+            <div>
+                <label> Choisissez le département</label>
+                <input type="radio" value="IT" [formField]="employeForm.affiliation.departement"> IT
+                <input type="radio" value="Finance" [formField]="employeForm.affiliation.departement"> Finance
+            </div>
+            <div>
+                <label> Donnez la fonction</label>
+                <select [formField]="employeForm.affiliation.poste">
+                    @for(p of postes; track $index){
+                        <option [value]="p">{{p}}</option>
+                    }     
+                </select>
+            </div>
+        </div>
+    </div>
+
+     <h5>Liste des diplômes</h5>
+       <button class="btn btn-primary" [disabled]="employeForm().invalid()">Ajouter Employé</button>
+    <input type="reset" class="btn btn-secondary" (click)="onVider()" value="Vider">
+</form>
+<app-employe-list></app-employe-list>

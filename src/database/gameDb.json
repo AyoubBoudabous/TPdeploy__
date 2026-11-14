@@ -24,6 +24,18 @@
         "Azerzrz",
         "ZZZ"
       ]
+    },
+    {
+      "id": "uh2UWpVX-Ko",
+      "name": "Paradice",
+      "price": 10,
+      "madeIn": "Tunisie",
+      "category": "Sport",
+      "isNew": false,
+      "shops": [
+        "Sfax",
+        "Nabeul"
+      ]
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -1,0 +1,87 @@
+{
+  "employes": [
+    {
+      "id": "efr6",
+      "matricule": "M589",
+      "nom": "Manel Mhamdi",
+      "affiliation": {
+        "fonction": "Technicien",
+        "departement": "TI"
+      }
+    },
+    {
+      "id": "3293",
+      "matricule": "100",
+      "nom": "Koussay",
+      "affiliation": {
+        "poste": "PDG",
+        "departement": "TI"
+      },
+      "diplomes": [
+        {
+          "intitule": "Bac",
+          "annee": 2024
+        },
+        {
+          "intitule": "Licence",
+          "annee": 2026
+        },
+        {
+          "intitule": "Doctorat",
+          "annee": 2030
+        }
+      ]
+    },
+    {
+      "id": "05ca",
+      "matricule": "101",
+      "nom": "Sabri",
+      "affiliation": {
+        "poste": "PDG",
+        "departement": "TI"
+      },
+      "diplomes": [
+        {
+          "intitule": "Bac",
+          "annee": 2024
+        },
+        {
+          "intitule": "Licence",
+          "annee": 2026
+        },
+        {
+          "intitule": "Ingénieur",
+          "annee": 2029
+        }
+      ]
+    },
+    {
+      "id": "lT6gHC3OAnM",
+      "matricule": "mat123",
+      "nom": "amel",
+      "affiliation": {
+        "poste": "PDG",
+        "departement": "Finance"
+      }
+    },
+    {
+      "id": "PV7cGJvzt5Q",
+      "matricule": "",
+      "nom": "",
+      "affiliation": {
+        "poste": "Techicien",
+        "departement": "IT"
+      }
+    },
+    {
+      "id": "_fo-P4Z1MD4",
+      "matricule": "",
+      "nom": "",
+      "affiliation": {
+        "poste": "Techicien",
+        "departement": "IT"
+      }
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
