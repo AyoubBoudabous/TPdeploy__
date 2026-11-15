@@ -25,6 +25,7 @@ export class GameAdd implements OnInit {
     isNew: true,
     shops: []
   })
+
   readonly gameForm = form(this.gameModel, path => {
     required(path.name, { message: "Nom obligatoire" }),
       pattern(path.name, /^[A-Z].+$/, { message: "Le nom doit commencer par une majuscule" }),

@@ -1,4 +1,4 @@
 export interface Diplome {
-    ititule:string;
+    intitule:string;
     annee:number;
 }

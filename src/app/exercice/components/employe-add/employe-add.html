@@ -1,5 +1,5 @@
 <h2> Ajout d'un employé</h2>
-<form [formRoot]="employeForm" (submit)="onAddEmploye()" novalidate>
+<form [formRoot]="employeForm" (submit)="onAddEmploye()" >
     <div>
         <label> Donnez le matricule</label>
         <input type="text" [formField]="employeForm.matricule">
@@ -43,7 +43,34 @@
     </div>
 
      <h5>Liste des diplômes</h5>
-       <button class="btn btn-primary" [disabled]="employeForm().invalid()">Ajouter Employé</button>
+    <div >
+        @for(diplome of employeForm.diplomes; track $index){
+            <div>
+            Intitulé du diplôme: 
+            <input type="text" [formField] ="diplome.intitule">
+            @if(diplome.intitule().invalid() && diplome.intitule().dirty()){
+                @for(error of diplome.intitule().errors(); track $index){
+                     <div class="alert alert-warning">
+                        {{error.message}}
+                    </div>
+                }                   
+            }
+            Année du diplôme:
+            <input type="number" [formField]="diplome.annee">
+            @if(diplome.annee().invalid() && diplome.annee().dirty()){
+                @for(error of diplome.annee().errors(); track $index){
+                     <div class="alert alert-warning">
+                        {{error.message}}
+                    </div>
+                }                   
+            }
+            <button type="button" class="btn btn-sm btn-warning" (click)="onDeleteDiplome($index)">Supprimer</button>
+            </div>
+        }
+    </div>
+    <button type="button" class ="btn btn-dark btn-sm" (click)="onAddDiplome()">Ajouter Diplôme</button>
+    <br>
+    <button class="btn btn-primary" [disabled]="employeForm().invalid()">Ajouter Employé</button>
     <input type="reset" class="btn btn-secondary" (click)="onVider()" value="Vider">
 </form>
 <app-employe-list></app-employe-list>
