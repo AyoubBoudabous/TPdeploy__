@@ -1,5 +1,4 @@
 import { Category } from "./category";
-
 export interface Game {
     id:string ;
     name: string;
@@ -9,3 +8,4 @@ export interface Game {
     isNew:boolean;
     shops: string[];
 }
+

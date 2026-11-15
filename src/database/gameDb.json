@@ -11,63 +11,6 @@
         "Tunis",
         "Sousse"
       ]
-    },
-    {
-      "id": "qgXqGcR_oxI",
-      "name": "Amel",
-      "price": 42042,
-      "madeIn": "Autre",
-      "category": "Jeux de cartes",
-      "isNew": true,
-      "shops": [
-        "Aazea",
-        "Azerzrz",
-        "ZZZ"
-      ]
-    },
-    {
-      "id": "uh2UWpVX-Ko",
-      "name": "Paradice",
-      "price": 10,
-      "madeIn": "Tunisie",
-      "category": "Sport",
-      "isNew": false,
-      "shops": [
-        "Sfax",
-        "Nabeul"
-      ]
-    },
-    {
-      "id": "MzNxT0TcC7s",
-      "name": "Cartable",
-      "price": 5000,
-      "madeIn": "Autre",
-      "category": "Sport",
-      "isNew": true,
-      "shops": []
-    },
-    {
-      "id": "B_Mticx7iOY",
-      "name": "Aee",
-      "price": 5,
-      "madeIn": "Tunisie",
-      "category": "Puzzle",
-      "isNew": true,
-      "shops": [
-        "eee",
-        "Arrr",
-        "ER"
-      ]
-    },
-    {
-      "id": "FvG-14-doKE",
-      "name": "Azez",
-      "price": 888,
-      "madeIn": "Tunisie",
-      "category": "Sport",
-      "isNew": true,
-      "shops": []
     }
-  ],
-  "$schema": "./node_modules/json-server/schema.json"
+  ]
 }

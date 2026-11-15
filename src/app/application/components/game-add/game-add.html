@@ -1,80 +1,42 @@
 <div class="container">
     <h3>Ajout d'un jeu</h3>
-    <form [formRoot]="gameForm" (submit)="onSubmit()" (reset)="resetForm()">
+    <form>
         <div>
             <label for="gameName">Nom</label>
-            <input type="text" id="gameName" class="form-control" [formField]="gameForm.name">
+            <input type="text" id="gameName" >
         </div>
-
-        @if(gameForm.name().invalid() && gameForm.name().dirty()){
-        @for(error of gameForm.name().errors(); track $index){
-        <div class="alert alert-danger">
-            {{error.message}}
-        </div>
-        }
-        }
         <div>
             <label for="gamePrice">Prix</label>
-            <input type="number" id="gamePrice" class="form-control" [formField]="gameForm.price">
+            <input type="number" id="gamePrice" >
         </div>
-        @if(gameForm.price().invalid() && gameForm.price().dirty()){
-        @for(error of gameForm.price().errors(); track $index){
-        @if(error.message){
-        <div class="alert alert-warning">
-            {{error.message}}
-        </div>
-        }
-        }
-        }
 
         <div>
             <label> Made In </label>
             <label>
-                <input type="radio" value="Tunisie" [formField]="gameForm.madeIn">Tunisie
+                <input type="radio" value="Tunisie" >Tunisie
             </label>
             <label>
-                <input type="radio" value="Autre" [formField]="gameForm.madeIn">Autre
+                <input type="radio" value="Autre" >Autre
             </label>
         </div>
         <div>
             <label for="gameCategory">Catégorie</label>
-            <select id="gameCategory" [formField]="gameForm.category" class="form-select">
-                @for (c of categories; track $index) {
-                <option [value]="c">{{c}}</option>
-                }
+            <select id="gameCategory" >
+
 
             </select>
         </div>
         <div>
             <label for="gameIsNew">
-                <input type="checkbox" id="gameIsNew" [formField]="gameForm.isNew"> Nouveau
+                <input type="checkbox" id="gameIsNew" > Nouveau
             </label>
-        </div>
-        <div>
-            <h4>Points de vente</h4>
-            @for(shop of gameForm.shops; track $index){
-            <div>
-                <label>Point de vente num : {{$index+1}}</label>
-                <input type="text" [formField]="shop">
-                <button type="button" class="btn btn-dark btn-sm" (click)="onDeleteShop($index)">Supprimer</button>
-                <div>
-                    @for(err of shop().errors(); track $index){
-                        <div class="alert alert-info">
-                        {{err.message}}
-                        </div>
-                    }
-                </div>
-            </div>
-            }
-            <button type="button" class="btn btn-sm btn-secondary" 
-            (click)="onAddShop()"> Ajouter un point de vente</button>
         </div>
 
         <div>
-            <input type="submit" class="btn btn-success" value="Ajouter" [disabled]="gameForm().invalid()">
-            <input type="reset" class="btn btn-warning" value="Effacer">
+            <input type="submit" class="btn btn-success" value="Ajouter">
+            <input type="reset" class="btn btn-warning"  value="Effacer">
         </div>
     </form>
-    {{games() |json}}
+
 </div>
 
