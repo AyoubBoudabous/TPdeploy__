@@ -1,42 +1,47 @@
 <div class="container">
-    <h3>Ajout d'un jeu</h3>
-    <form>
-        <div>
-            <label for="gameName">Nom</label>
-            <input type="text" id="gameName" >
-        </div>
-        <div>
-            <label for="gamePrice">Prix</label>
-            <input type="number" id="gamePrice" >
-        </div>
+  <h3>Ajout d'un jeu</h3>
+  <form [formRoot]="gameForm" (submit)="onSubmit(); resetForm()">
+    <div>
+      <label for="gameName">Nom</label>
+      <input type="text" id="gameName" [formField]="gameForm.name" />
+    </div>
+    <div>
+      <label for="gamePrice">Prix</label>
+      <input type="number" id="gamePrice" [formField]="gameForm.price" />
+    </div>
 
-        <div>
-            <label> Made In </label>
-            <label>
-                <input type="radio" value="Tunisie" >Tunisie
-            </label>
-            <label>
-                <input type="radio" value="Autre" >Autre
-            </label>
-        </div>
-        <div>
-            <label for="gameCategory">Catégorie</label>
-            <select id="gameCategory" >
+    <div>
+      <label> Made In </label>
+      <label> <input type="radio" value="Tunisie" [formField]="gameForm.madeIn" />Tunisie </label>
+      <label> <input type="radio" value="Autre" [formField]="gameForm.madeIn" />Autre </label>
+    </div>
+    <div>
+      <label for="gameCategory">Catégorie</label>
 
+      <select id="gameCategory"></select>
+    </div>
+    <div>
+      <label for="gameIsNew"> <input type="checkbox" id="gameIsNew" /> Nouveau </label>
+    </div>
 
-            </select>
-        </div>
-        <div>
-            <label for="gameIsNew">
-                <input type="checkbox" id="gameIsNew" > Nouveau
-            </label>
-        </div>
+    <div>
+      <input
+        type="submit"
+        class="btn btn-success"
+        value="Ajouter"
+        [disabled]="gameForm().invalid()"
+      />
+      <input type="reset" class="btn btn-warning" value="Effacer" />
+    </div>
 
-        <div>
-            <input type="submit" class="btn btn-success" value="Ajouter">
-            <input type="reset" class="btn btn-warning"  value="Effacer">
-        </div>
-    </form>
+    {{ gameModel() | json }}
 
+    @if (gameForm.name().invalid() && gameForm.name().dirty()) {
+      @for (error of gameForm.name().errors(); track $index) {
+        <div class="alert alert-danger">
+          {{ error.message }}
+        </div>
+      }
+    }
+  </form>
 </div>
-
