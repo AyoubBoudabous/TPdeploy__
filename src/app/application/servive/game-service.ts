@@ -1,24 +1,25 @@
 import { HttpClient } from '@angular/common/http';
-import { Service, inject, signal } from '@angular/core';
+import { Injectable, inject, signal } from '@angular/core';
 import { Game } from '../models/game';
 import { Observable } from 'rxjs/internal/Observable';
-import { environment } from '../../../environments/environment';
+import { tap } from 'rxjs';
 
-const url = environment.apiUrl ;
+const url = 'http://localhost:3000/games';
 
-@Service()
+@Injectable({ providedIn: 'root' })
 export class GameService {
-    private readonly _http = inject(HttpClient);
-    private readonly _games = signal<Game[]>([]);
-    
-    games = this._games.asReadonly();
+  private readonly _http = inject(HttpClient);
+  private readonly _games = signal<Game[]>([]);
 
+  games = this._games.asReadonly();
 
-    getGames() : Observable<Game[]> {
-        return this._http.get<Game[]>(url);
-    }
+  getGames(): Observable<Game[]> {
+    return this._http.get<Game[]>(url).pipe(tap((games) => this._games.set(games)));
+  }
 
-    addGame(game: Game) : Observable<Game> {
-        return this._http.post<Game>(url, game);
-    } 
+  addGame(game: Game): Observable<Game> {
+    return this._http
+      .post<Game>(url, game)
+      .pipe(tap((gameAdded) => this._games.update((game) => [...game, gameAdded])));
+  }
 }

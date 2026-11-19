@@ -1,6 +1,6 @@
 <div class="container">
   <h3>Ajout d'un jeu</h3>
-  <form [formRoot]="gameForm" (submit)="onSubmit(); resetForm()">
+  <form [formRoot]="gameForm" (submit)="onSubmit()">
     <div>
       <label for="gameName">Nom</label>
       <input type="text" id="gameName" [formField]="gameForm.name" />
@@ -17,8 +17,11 @@
     </div>
     <div>
       <label for="gameCategory">Catégorie</label>
-
-      <select id="gameCategory"></select>
+      <select id="gameCategory" [formField]="gameForm.category">
+        @for (c of categories; track c) {
+          <option [value]="c">{{ c }}</option>
+        }
+      </select>
     </div>
     <div>
       <label for="gameIsNew"> <input type="checkbox" id="gameIsNew" /> Nouveau </label>
@@ -34,7 +37,7 @@
       <input type="reset" class="btn btn-warning" value="Effacer" />
     </div>
 
-    {{ gameModel() | json }}
+    {{ games() | json }}
 
     @if (gameForm.name().invalid() && gameForm.name().dirty()) {
       @for (error of gameForm.name().errors(); track $index) {

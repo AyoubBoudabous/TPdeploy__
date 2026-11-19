@@ -1,8 +1,9 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { Category } from '../../models/category';
 import { Game } from '../../models/game';
 import { form, FormRoot, FormField, required, min, pattern } from '@angular/forms/signals';
 import { JsonPipe } from '@angular/common';
+import { GameService } from '../../servive/game-service';
 @Component({
   imports: [FormRoot, FormField, JsonPipe],
   selector: 'app-game-add',
@@ -11,6 +12,12 @@ import { JsonPipe } from '@angular/common';
 })
 export class GameAdd {
   categories = Object.values(Category);
+  private readonly gamesService = inject(GameService);
+  games = this.gamesService.games;
+
+  ngOnInit(): void {
+    this.gamesService.getGames().subscribe();
+  }
 
   readonly gameModel = signal<Game>({
     id: '',
@@ -30,7 +37,7 @@ export class GameAdd {
   });
 
   onSubmit() {
-    console.log(this.gameModel());
+    this.gamesService.addGame(this.gameModel()).subscribe(() => this.resetForm());
   }
   resetForm() {
     this.gameModel.set({

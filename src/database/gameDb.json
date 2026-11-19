@@ -11,6 +11,16 @@
         "Tunis",
         "Sousse"
       ]
+    },
+    {
+      "id": "4rRDhNR-ylU",
+      "name": "Ayoub",
+      "price": 500,
+      "madeIn": "Tunisie",
+      "category": "Jeux de société",
+      "isNew": true,
+      "shops": []
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
